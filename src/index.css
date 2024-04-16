@@ -2,7 +2,7 @@
 :root {
   /* Global variables to be defined here */
   /* --color-white: #ffffff; */
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Ubuntu", "Open Sans", sans-serif;
 }
 
 *,
