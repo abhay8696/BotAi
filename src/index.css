@@ -2,7 +2,12 @@
 :root {
   /* Global variables to be defined here */
   /* --color-white: #ffffff; */
-  font-family: "Ubuntu", "Open Sans", sans-serif;
+  --color-white: #ffffff;
+  --primary1: #9785BA;
+  --primary2: #AF9FCD;
+  --secondary: #D7C7F4;
+  --gradient: linear-gradient(180deg, #FFFFFF 0%, #9785BA 100%);
+  --color-black: #3C3C3C;
 }
 
 *,
@@ -16,6 +21,7 @@
 html,
 body {
   height: 100%;
+  font-family: "Ubuntu", "Open Sans", sans-serif;
 }
 body {
   line-height: 1.5;
