@@ -10,7 +10,7 @@ const Button = props => {
     //context
     const [theme, setTheme] = useContext(ThemeContext)
     return (
-        <button className={`Button ButtonTheme${theme}`}>
+        <button className={`Button ButtonTheme-${theme}`}>
             {text || "text"}
         </button>
     );

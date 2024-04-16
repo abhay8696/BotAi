@@ -13,13 +13,13 @@
     justify-content: center;
 }
 
-.ButtonThemelight{
+.ButtonTheme-light{
     color: var(--color-black);
     background-color: var(--secondary);
 }
 
 
-.ButtonThemedark{
+.ButtonTheme-dark{
     color: var(--color-white);
     background-color: var(--primary1);
 }
