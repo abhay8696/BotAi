@@ -8,6 +8,8 @@ import ChatCard from './components/ChatCard/ChatCard';
 
 
 import icon1 from "./assets/icon2.png";
+import Form from './components/Form/Form';
+import SideBar from './components/SideBar/SideBar';
 
 function App() {
   const [theme, setTheme] = useState("light")
@@ -16,9 +18,8 @@ function App() {
     <>
     <ThemeContext.Provider value={[theme, setTheme]}>
       <main>
-        <Button text="save"/>
-        <SuggestCard mainText="Hi, what is my location" subText="Get immediate AI generated response" />
-        <ChatCard name="you" message="Hi There. How can I assist you today?" time="10:34 AM" icon={icon1}/>
+        <SideBar />
+        
       </main>
     </ThemeContext.Provider>
     </>

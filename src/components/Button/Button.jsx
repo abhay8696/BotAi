@@ -6,11 +6,11 @@ import { ThemeContext } from '../../AllContexts';
 
 const Button = props => {
     //props
-    const { clickFunction, text } = props;
+    const { clickFunction, text, type, customClass } = props;
     //context
     const [theme, setTheme] = useContext(ThemeContext)
     return (
-        <button className={`Button ButtonTheme-${theme}`}>
+        <button className={`Button ButtonTheme-${theme} ${customClass}`} type={type} >
             {text || "text"}
         </button>
     );

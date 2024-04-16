@@ -24,6 +24,12 @@
     background-color: var(--primary1);
 }
 
+.pastConvo{
+    width: 90% !important;
+    font-size: 16px !important;
+    font-weight: 700;
+}
+
 
 
 /* screen above 600px */
