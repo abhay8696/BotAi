@@ -9,7 +9,7 @@ import ChatBody from '../ChatBody/ChatBody';
 
 const AppBody = props => {
     //props
-    const { handleSideBar, sidebarON, currentChat, addChatMsg } = props;
+    const { handleSideBar, sidebarON, currentChat, addChatMsg, clearCurrentChat } = props;
     //context
     const [theme, setTheme] = useContext(ThemeContext)
 
@@ -21,7 +21,7 @@ const AppBody = props => {
                 }
                 <h1>Bot AI</h1>
             </div>
-            <ChatBody addChatMsg={addChatMsg} currentChat={currentChat}/>
+            <ChatBody clearCurrentChat={clearCurrentChat} addChatMsg={addChatMsg} currentChat={currentChat}/>
         </div>
     );
 };

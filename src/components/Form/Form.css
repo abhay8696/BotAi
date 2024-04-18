@@ -1,8 +1,14 @@
 
 
+.Form-wrapper{
+    display: flex;
+    gap: 1rem;
+}
+
 .Form{
     display: flex;
     gap: 1rem;
+    flex: 1;
 }
 
 .Form input{

@@ -23,12 +23,15 @@ function App() {
   const addChatMsg = (userMsg, botReply) => {
     setCurrentChat([...currentChat, userMsg, botReply]);
   }
+  const clearCurrentChat = () => setCurrentChat([]);
+
+
   return (
     <>
     <ThemeContext.Provider value={[theme, setTheme]}>
       <main>
         <SideBar handleSideBar={handleSideBar} sidebarON={sidebarON}/>
-        <AppBody addChatMsg={addChatMsg} currentChat={currentChat} handleSideBar={handleSideBar} sidebarON={sidebarON}/>
+        <AppBody clearCurrentChat={clearCurrentChat} addChatMsg={addChatMsg} currentChat={currentChat} handleSideBar={handleSideBar} sidebarON={sidebarON}/>
       </main>
     </ThemeContext.Provider>
     </>

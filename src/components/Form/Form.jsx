@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 
 const Form = props => {
     //props
-    const { handleFormInput } = props;
+    const { handleFormInput, saveChat } = props;
     //states
     const [text, setText] = useState("");
     // ..contexts
@@ -18,15 +18,14 @@ const Form = props => {
         handleFormInput(text);
         setText("");
     }
-    const saveChat = event=> {
-        event.preventDefault()
-    }
     return (
-        <form className='Form' onSubmit={handleSubmit}>
-            <input value={text} onChange={e => setText(e.target.value)} required />
-            <Button text="add" type="submit" />
+        <div className='Form-wrapper'>
+            <form className='Form' onSubmit={handleSubmit}>
+                <input value={text} onChange={e => setText(e.target.value)} required />
+                <Button text="add" type="submit" />
+            </form>
             <Button text="save" clickFunction={saveChat}/>
-        </form>
+        </div>
     );
 };
 

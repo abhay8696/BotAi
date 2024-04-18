@@ -11,11 +11,11 @@ import ChatCard from '../ChatCard/ChatCard';
 import Form from '../Form/Form';
 import Intro from '../Intro/Intro';
 //helper functions
-import { createTimeStamp, findQuestionFromSampleData } from '../../functions/functions';
+import { createTimeStamp, findQuestionFromSampleData, saveChatToLocal } from '../../functions/functions';
 
 const ChatBody = props => {
     //props
-    const { currentChat, addChatMsg } = props;
+    const { currentChat, addChatMsg, clearCurrentChat } = props;
     //context
     const [theme, setTheme] = useContext(ThemeContext);
     //functions
@@ -53,6 +53,11 @@ const ChatBody = props => {
             return <ChatCard key={id} icon={icon} name={name} message={message} time={time}/>
         })
     }
+    const saveChat = () => {
+        if(!currentChat || !currentChat.length) return alert("No Conversation to save.")
+        saveChatToLocal(currentChat);
+        clearCurrentChat();
+    }
 
 
     return (
@@ -63,12 +68,12 @@ const ChatBody = props => {
                 <div className='cardsWrapper'>
                     {displayCards()}
                 </div>
-                <Form handleFormInput={handleFormInput}/>
+                <Form handleFormInput={handleFormInput} saveChat={saveChat}/>
             </>
             :
             <>
                 <Intro />
-                <Form handleFormInput={handleFormInput}/>
+                <Form handleFormInput={handleFormInput} />
             </>
         }
             

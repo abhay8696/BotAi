@@ -20,3 +20,16 @@ export const findQuestionFromSampleData = (array, substring) => {
     return array.filter(obj => obj.question.toLowerCase().includes(substring.toLowerCase()));
 }
 
+
+export const saveChatToLocal = currentChat => {
+    
+    const newConvo = {id: `convo-${new Date()/1}`, conversation: currentChat}
+    let allConvo = [ newConvo ];
+        
+    const pastConvo = JSON.parse(window.localStorage.getItem("pastConversations"));
+    if(pastConvo){  
+        allConvo = [newConvo, ...pastConvo];
+    }
+
+    window.localStorage.setItem("pastConversations", JSON.stringify(allConvo));
+}
