@@ -10,3 +10,13 @@ export const createTimeStamp = () => {
     return timeString;
 }
 
+
+export const findQuestionFromSampleData = (array, substring) => {
+
+    const str = substring.toLowerCase()
+    if(str === "hi" || str === "hii" || str === "hello" || str === "hey"){
+        return ([{response: "Hello, how may I help you?"}]);
+    }
+    return array.filter(obj => obj.question.toLowerCase().includes(substring.toLowerCase()));
+}
+

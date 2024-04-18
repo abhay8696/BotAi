@@ -5,12 +5,13 @@ import "./ChatBody.css";
 //assets
 import icon1 from "../../assets/icon1.png";
 import icon2 from "../../assets/icon2.png";
+import sampleData from "../../assets/sampleData.json";
 //components
 import ChatCard from '../ChatCard/ChatCard';
 import Form from '../Form/Form';
 import Intro from '../Intro/Intro';
 //helper functions
-import { createTimeStamp } from '../../functions/functions';
+import { createTimeStamp, findQuestionFromSampleData } from '../../functions/functions';
 
 const ChatBody = props => {
     //props
@@ -19,14 +20,30 @@ const ChatBody = props => {
     const [theme, setTheme] = useContext(ThemeContext);
     //functions
     const handleFormInput = text => {
-        const newChatCard = {
+
+        // create relevant response from form input
+        // create new chat cards from form input and response
+        // add to currentChats
+
+        const responseArr = findQuestionFromSampleData(sampleData, text);
+
+        const userCard = {
             icon: icon2,
             name: "you",
             message: text,
             time: createTimeStamp(),
-            id: new Date() / 1,
+            id: `you-${new Date() / 1}`,
         }
-        addChatMsg(newChatCard);
+
+        const botCard = {
+            icon: icon1,
+            name: "bot ai",
+            message: responseArr?.[0]?.response || "something went wrong...",
+            time: createTimeStamp(),
+            id: `botAI-${new Date() / 1}`,
+        }
+
+        addChatMsg(userCard, botCard);
     }
     const displayCards = () => {
         if(!currentChat || !currentChat.length) return [];
@@ -36,6 +53,8 @@ const ChatBody = props => {
             return <ChatCard key={id} icon={icon} name={name} message={message} time={time}/>
         })
     }
+
+
     return (
         <div className={`ChatBody ChatBodyTheme-${theme}`}>
         {

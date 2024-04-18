@@ -1,14 +1,9 @@
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
+//styles
 import './App.css'
+//contexts
 import { ThemeContext } from './AllContexts';
-import Button from './components/Button/Button';
-import SuggestCard from './components/SuggestCard/SuggestCard';
-import ChatCard from './components/ChatCard/ChatCard';
-
-
-import icon1 from "./assets/icon2.png";
-import Form from './components/Form/Form';
+//components
 import SideBar from './components/SideBar/SideBar';
 import AppBody from './components/AppBody/AppBody';
 
@@ -18,14 +13,15 @@ function App() {
   const [sidebarON, setSideBarON] = useState(false);
   const [currentChat, setCurrentChat] = useState([]);
 
+
   //functions
   const handleSideBar = () => setSideBarON(!sidebarON);
   const newChatClick = () => {
     //save current chat to pastConversations
     //setCurrentChat to empty []
   }
-  const addChatMsg = card => {
-    setCurrentChat([...currentChat, card]);
+  const addChatMsg = (userMsg, botReply) => {
+    setCurrentChat([...currentChat, userMsg, botReply]);
   }
   return (
     <>
