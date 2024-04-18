@@ -20,7 +20,7 @@ const Intro = () => {
 
     return (
         <div className={`Intro IntroTheme-${theme}`}>
-            <div>
+            <div className='introQuestion'>
                 <h1>How Can I Help You Today?</h1>
                 <img src={icon1} alt="bot ai" />
             </div>
