@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 
 const Form = props => {
     //props
-    const { submitFunction } = props;
+    const { handleFormInput } = props;
     //states
     const [text, setText] = useState("");
     // ..contexts
@@ -15,6 +15,8 @@ const Form = props => {
     //functions
     const handleSubmit = event => {
         event.preventDefault();
+        handleFormInput(text);
+        setText("");
     }
     const saveChat = event=> {
         event.preventDefault()

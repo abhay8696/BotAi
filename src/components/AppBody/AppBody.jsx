@@ -3,18 +3,13 @@ import React, { useContext } from 'react';
 import "./AppBody.css";
 //assets
 import menuIcon from "../../assets/menu.svg";
-import icon1 from "../../assets/icon1.png";
-import icon2 from "../../assets/icon2.png";
 //contexts
 import { ThemeContext } from '../../AllContexts';
-import Intro from '../Intro/Intro';
-import Form from '../Form/Form';
-import ChatCard from '../ChatCard/ChatCard';
 import ChatBody from '../ChatBody/ChatBody';
 
 const AppBody = props => {
     //props
-    const { handleSideBar, sidebarON } = props;
+    const { handleSideBar, sidebarON, currentChat, addChatMsg } = props;
     //context
     const [theme, setTheme] = useContext(ThemeContext)
 
@@ -26,8 +21,7 @@ const AppBody = props => {
                 }
                 <h1>Bot AI</h1>
             </div>
-            {/* <Intro /> */}
-            <ChatBody />
+            <ChatBody addChatMsg={addChatMsg} currentChat={currentChat}/>
         </div>
     );
 };
