@@ -6,11 +6,11 @@ import { ThemeContext } from '../../AllContexts';
 
 const ChatCard = props => {
     //props
-    const { name, message, time, icon } = props;
+    const { name, message, time, icon, customClass } = props;
     // ..contexts
     const [theme, setTheme] = useContext(ThemeContext);
     return (
-        <div className={`ChatCard ChatCardTheme-${theme}`}>
+        <div className={`ChatCard ChatCardTheme-${theme} ${customClass}`}>
             <span className='chatCardImage-wrapper'>
                 <img src={icon} alt={`${name} icon`} className='chatCardImage'/>
             </span>

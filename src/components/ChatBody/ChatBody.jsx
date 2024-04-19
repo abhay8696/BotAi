@@ -57,6 +57,7 @@ const ChatBody = props => {
         if(!currentChat || !currentChat.length) return alert("No Conversation to save.")
         saveChatToLocal(currentChat);
         clearCurrentChat();
+        alert("Conversation saved!")
     }
 
 

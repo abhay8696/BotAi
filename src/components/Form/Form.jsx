@@ -22,7 +22,7 @@ const Form = props => {
         <div className='Form-wrapper'>
             <form className='Form' onSubmit={handleSubmit}>
                 <input value={text} onChange={e => setText(e.target.value)} required />
-                <Button text="add" type="submit" />
+                <Button text="ask" type="submit" />
             </form>
             <Button text="save" clickFunction={saveChat}/>
         </div>

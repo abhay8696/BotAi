@@ -49,3 +49,9 @@
 .ChatCardTheme-dark .chatCardTime{
     color: #ffffff9E;
 }
+
+.insidePast{
+    border: none;
+    background-color: inherit;
+    box-shadow: none;
+}

@@ -6,10 +6,11 @@ import menuIcon from "../../assets/menu.svg";
 //contexts
 import { ThemeContext } from '../../AllContexts';
 import ChatBody from '../ChatBody/ChatBody';
+import PastConvo from '../PastConvo/PastConvo';
 
 const AppBody = props => {
     //props
-    const { handleSideBar, sidebarON, currentChat, addChatMsg, clearCurrentChat } = props;
+    const { handleSideBar, sidebarON, currentChat, addChatMsg, clearCurrentChat, pastConvo } = props;
     //context
     const [theme, setTheme] = useContext(ThemeContext)
 
@@ -21,7 +22,12 @@ const AppBody = props => {
                 }
                 <h1>Bot AI</h1>
             </div>
-            <ChatBody clearCurrentChat={clearCurrentChat} addChatMsg={addChatMsg} currentChat={currentChat}/>
+            {
+                pastConvo ?
+                <PastConvo />
+                :
+                <ChatBody clearCurrentChat={clearCurrentChat} addChatMsg={addChatMsg} currentChat={currentChat}/>
+            }
         </div>
     );
 };

@@ -12,7 +12,7 @@ import Button from '../Button/Button';
 
 const SideBar = props => {
     //props
-    const { handleSideBar, sidebarON } = props;
+    const { handleSideBar, sidebarON, handlePastConvo } = props;
     //context
     const [theme, setTheme] = useContext(ThemeContext)
 
@@ -27,7 +27,7 @@ const SideBar = props => {
                     
                 </div>
                 <div className='sideBarBody'>
-                    <Button text={"Past Conversations"} customClass="pastConvo"/>
+                    <Button clickFunction={handlePastConvo} text={"Past Conversations"} customClass="pastConvo"/>
                 </div>
             </aside>
         )}
@@ -42,7 +42,7 @@ const SideBar = props => {
                     
                 </div>
                 <div className='sideBarBody'>
-                    <Button text={"Past Conversations"} customClass="pastConvo"/>
+                    <Button clickFunction={handlePastConvo} text={"Past Conversations"} customClass="pastConvo"/>
                 </div>
                 {
                     sidebarON ? 

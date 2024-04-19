@@ -12,6 +12,7 @@ function App() {
   const [theme, setTheme] = useState("light");
   const [sidebarON, setSideBarON] = useState(false);
   const [currentChat, setCurrentChat] = useState([]);
+  const [pastConvo, setPastConvo] = useState(false);
 
 
   //functions
@@ -24,14 +25,14 @@ function App() {
     setCurrentChat([...currentChat, userMsg, botReply]);
   }
   const clearCurrentChat = () => setCurrentChat([]);
-
+  const handlePastConvo = () => setPastConvo(!pastConvo);
 
   return (
     <>
     <ThemeContext.Provider value={[theme, setTheme]}>
       <main>
-        <SideBar handleSideBar={handleSideBar} sidebarON={sidebarON}/>
-        <AppBody clearCurrentChat={clearCurrentChat} addChatMsg={addChatMsg} currentChat={currentChat} handleSideBar={handleSideBar} sidebarON={sidebarON}/>
+        <SideBar handleSideBar={handleSideBar} sidebarON={sidebarON} handlePastConvo={handlePastConvo}/>
+        <AppBody pastConvo={pastConvo} clearCurrentChat={clearCurrentChat} addChatMsg={addChatMsg} currentChat={currentChat} handleSideBar={handleSideBar} sidebarON={sidebarON}/>
       </main>
     </ThemeContext.Provider>
     </>
