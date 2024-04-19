@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ThemeContext } from '../../AllContexts';
 //styles
 import "./ChatBody.css";
@@ -20,6 +20,11 @@ const ChatBody = props => {
     const { currentChat, addChatMsg, clearCurrentChat, likeDislikeReply } = props;
     //context
     const [theme, setTheme] = useContext(ThemeContext);
+    //side effects
+    useEffect(()=>{
+        if(!currentChat) return
+        scrollToBottom();
+    }, [currentChat])
     //functions
     const handleFormInput = text => {
 
@@ -56,7 +61,8 @@ const ChatBody = props => {
         return currentChat.map(card => {
             const { icon, name, message, time, id, like, dislike } = card;
             let customClass
-            if(name === "bot ai") customClass = "botCard"
+            if(name === "bot ai") customClass = "botCard";
+            else customClass = "userCard"
             return <ChatCard like={like} dislike={dislike} id={id} likeDislikeReply={likeDislikeReply} customClass={customClass} key={id} icon={icon} name={name} message={message} time={time}/>
         })
     }
@@ -66,14 +72,19 @@ const ChatBody = props => {
         clearCurrentChat();
         alert("Conversation saved!")
     }
-
+    // Function to scroll to the bottom of the div
+    function scrollToBottom() {
+        var container = document.getElementById("cardsWrapper");
+        if(!container) return;
+        container.scrollTop = container.scrollHeight;
+    }
 
     return (
         <div className={`ChatBody ChatBodyTheme-${theme}`}>
         {
             currentChat?.length ?
             <>
-                <div className='cardsWrapper'>
+                <div className='cardsWrapper' id="cardsWrapper">
                     {displayCards()}
                 </div>
                 <Form handleFormInput={handleFormInput} saveChat={saveChat}/>

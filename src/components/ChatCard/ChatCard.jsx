@@ -24,7 +24,6 @@ function RatingSize() {
   );
 }
 const Thumbs = ({likeDislikeReply, id, like, dislike}) => {
-    console.log({like, dislike})
     return (
         <span className='thumbsWraper'>
             <img src={like} alt='like button' onClick={()=>likeDislikeReply(id,"like")}/>
@@ -47,8 +46,11 @@ const ChatCard = props => {
             </span>
             <span className='chatCardTexts'>
                 <span className='chatCardName'>{name}</span>
-                <span className='chatCardMessage'>{message}</span>
-                <span className='chatCardTime'>alt="like button"
+                <span className='chatCardMessage'>
+                    {/* <span className='typing'>typing...</span> */}
+                    <span className='messageAppear'>{message}</span>
+                </span>
+                <span className='chatCardTime'>
                     <span> {time} </span>
                     {name==="bot ai" ? <Thumbs like={like} dislike={dislike} likeDislikeReply={likeDislikeReply} id={id}/> : null}
                 </span>

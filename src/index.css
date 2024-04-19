@@ -22,6 +22,7 @@ html,
 body {
   height: 100%;
   font-family: "Ubuntu", "Open Sans", sans-serif;
+  scroll-behavior: smooth;
 }
 body {
   line-height: 1.5;
