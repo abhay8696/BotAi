@@ -48,8 +48,10 @@ const ChatBody = props => {
             message: responseArr?.[0]?.response || "something went wrong...",
             time: createTimeStamp(),
             id: `botAI-${new Date() / 1}`,
-            like: "/src/assets/like-outline-black.svg",
-            dislike: "src/assets/dislike-outline-black.svg"
+            like: likeOutlinedIcon,
+            dislike: dislikeOutlinedIcon,
+            // like: "/src/assets/like-outline-black.svg",
+            // dislike: "src/assets/dislike-outline-black.svg"
         }
 
         addChatMsg(userCard, botCard);

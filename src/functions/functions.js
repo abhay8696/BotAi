@@ -1,4 +1,6 @@
 
+
+
 export const createTimeStamp = () => {
     const now = new Date();
     let hours = now.getHours();
@@ -35,7 +37,9 @@ export const saveChatToLocal = currentChat => {
 }
 
 
-export const updateByLikeDislike = (chatCardId, reaction, currentChat) => {
+
+export const updateByLikeDislike = (chatCardId, reaction, currentChat, iconsData) => {
+    const {likeOutlinedIcon, dislikeOutlinedIcon, likeFilledIcon, dislikeFilledIcon} = iconsData;
     let index;
     for(let i = 0; i < currentChat.length; i++){
       if(currentChat[i].id === chatCardId){
@@ -48,12 +52,16 @@ export const updateByLikeDislike = (chatCardId, reaction, currentChat) => {
     if(index){
       let updatedChat = [...currentChat];
       if(reaction === "like"){
-        updatedChat[index].like = "/src/assets/like-filled-black.svg";
-        updatedChat[index].dislike = "/src/assets/dislike-outline-black.svg";
+        // updatedChat[index].like = "/src/assets/like-filled-black.svg";
+        // updatedChat[index].dislike = "/src/assets/dislike-outline-black.svg";
+        updatedChat[index].like = likeFilledIcon;
+        updatedChat[index].dislike = dislikeOutlinedIcon;
       }else{
         {
-          updatedChat[index].like = "/src/assets/like-outline-black.svg";
-          updatedChat[index].dislike = "/src/assets/dislike-filled-black.svg";
+          // updatedChat[index].like = "/src/assets/like-outline-black.svg";
+          // updatedChat[index].dislike = "/src/assets/dislike-filled-black.svg";
+          updatedChat[index].like = likeOutlinedIcon;
+          updatedChat[index].dislike = dislikeFilledIcon;
         }
       }
 

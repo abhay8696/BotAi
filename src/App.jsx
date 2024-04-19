@@ -7,6 +7,12 @@ import { ThemeContext } from './AllContexts';
 import SideBar from './components/SideBar/SideBar';
 import AppBody from './components/AppBody/AppBody';
 import { updateByLikeDislike } from './functions/functions';
+//assets
+import likeOutlinedIcon from "../src/assets/like-outline-black.svg";
+import dislikeOutlinedIcon from "../src/assets/dislike-outline-black.svg";
+import likeFilledIcon from "../src/assets/like-filled-black.svg";
+import dislikeFilledIcon from "../src/assets/dislike-filled-black.svg";
+
 
 function App() {
   //states
@@ -15,7 +21,8 @@ function App() {
   const [currentChat, setCurrentChat] = useState([]);
   const [pastConvo, setPastConvo] = useState(false);
 
-
+  //variables
+  const iconsData = {likeOutlinedIcon, dislikeOutlinedIcon, likeFilledIcon, dislikeFilledIcon};
   //functions
   const handleSideBar = () => setSideBarON(!sidebarON);
   const newChatClick = () => {
@@ -29,7 +36,7 @@ function App() {
   }
   const clearCurrentChat = () => setCurrentChat([]);
   const handlePastConvo = () => setPastConvo(!pastConvo);
-  const likeDislikeReply = (chatCardId, reaction) => setCurrentChat(updateByLikeDislike(chatCardId, reaction, currentChat));
+  const likeDislikeReply = (chatCardId, reaction) => setCurrentChat(updateByLikeDislike(chatCardId, reaction, currentChat, iconsData));
   
   return (
     <>
