@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 //styles
 import "./ChatCard.css";
 //assets
-import likeIcon from "../../assets/likeBlack.svg";
-import dislikeIcon from "../../assets/dislikeBlack.svg";
+import likeOutlined from "../../assets/like-outline-black.svg";
+import likeFilled from "../../assets/like-filled-black.svg";
+import dislikeOutlined from "../../assets/dislike-outline-black.svg";
+import dislikeFilled from "../../assets/dislike-filled-black.svg";
 //contexts
 import { ThemeContext } from '../../AllContexts';
 //MUI
@@ -21,18 +23,19 @@ function RatingSize() {
     </Stack>
   );
 }
-const Thumbs = ({likeDislikeReply, id}) => {
+const Thumbs = ({likeDislikeReply, id, like, dislike}) => {
+    console.log({like, dislike})
     return (
         <span className='thumbsWraper'>
-            <img src={likeIcon} alt='like button' onClick={()=>likeDislikeReply(id,"like")}/>
-            <img src={dislikeIcon} alt='dislike button' onClick={()=>likeDislikeReply(id,"dislike")}/>
+            <img src={like} alt='like button' onClick={()=>likeDislikeReply(id,"like")}/>
+            <img src={dislike} alt='dislike button' onClick={()=>likeDislikeReply(id,"dislike")}/>
         </span>
     )
 }
 
 const ChatCard = props => {
     //props
-    const { name, message, time, icon, customClass, likeDislikeReply, id } = props;
+    const { name, message, time, icon, customClass, likeDislikeReply, id, like, dislike } = props;
     //states
     const [rate, setRate] = useState({});
     // ..contexts
@@ -45,9 +48,9 @@ const ChatCard = props => {
             <span className='chatCardTexts'>
                 <span className='chatCardName'>{name}</span>
                 <span className='chatCardMessage'>{message}</span>
-                <span className='chatCardTime'>
+                <span className='chatCardTime'>alt="like button"
                     <span> {time} </span>
-                    {name==="bot ai" ? <Thumbs likeDislikeReply={likeDislikeReply} id={id}/> : null}
+                    {name==="bot ai" ? <Thumbs like={like} dislike={dislike} likeDislikeReply={likeDislikeReply} id={id}/> : null}
                 </span>
             </span>
         </div>

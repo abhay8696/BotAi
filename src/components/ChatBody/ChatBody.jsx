@@ -5,6 +5,8 @@ import "./ChatBody.css";
 //assets
 import icon1 from "../../assets/icon1.png";
 import icon2 from "../../assets/icon2.png";
+import likeOutlinedIcon from "../../assets/like-outline-black.svg";
+import dislikeOutlinedIcon from "../../assets/dislike-outline-black.svg";
 import sampleData from "../../assets/sampleData.json";
 //components
 import ChatCard from '../ChatCard/ChatCard';
@@ -41,20 +43,21 @@ const ChatBody = props => {
             message: responseArr?.[0]?.response || "something went wrong...",
             time: createTimeStamp(),
             id: `botAI-${new Date() / 1}`,
-            like: false,
-            dislike: false
+            like: "/src/assets/like-outline-black.svg",
+            dislike: "src/assets/dislike-outline-black.svg"
         }
 
         addChatMsg(userCard, botCard);
     }
     const displayCards = () => {
+
         if(!currentChat || !currentChat.length) return [];
 
         return currentChat.map(card => {
-            const { icon, name, message, time, id } = card;
+            const { icon, name, message, time, id, like, dislike } = card;
             let customClass
             if(name === "bot ai") customClass = "botCard"
-            return <ChatCard id={id} likeDislikeReply={likeDislikeReply} customClass={customClass} key={id} icon={icon} name={name} message={message} time={time}/>
+            return <ChatCard like={like} dislike={dislike} id={id} likeDislikeReply={likeDislikeReply} customClass={customClass} key={id} icon={icon} name={name} message={message} time={time}/>
         })
     }
     const saveChat = () => {

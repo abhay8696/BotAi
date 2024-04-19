@@ -10,8 +10,8 @@ const ConvoCard = ({id, conversation}) => {
     //functions
     const displayCards = () => {
         return conversation.map(card => {
-            const { icon, name, message, time, id } = card;
-            return <ChatCard customClass="insidePast" key={id} icon={icon} name={name} message={message} time={time}/>
+            const { icon, name, message, time, id, like, dislike } = card;
+            return <ChatCard like={like} dislike={dislike} customClass="insidePast" key={id} icon={icon} name={name} message={message} time={time}/>
         })
     }
     return (

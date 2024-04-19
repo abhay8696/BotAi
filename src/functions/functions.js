@@ -43,15 +43,17 @@ export const updateByLikeDislike = (chatCardId, reaction, currentChat) => {
         break;
       }
     }
+    //"src/assets/like-outline-black.svg"
+    //"/src/assets/dislike-outline-black.svg"
     if(index){
       let updatedChat = [...currentChat];
       if(reaction === "like"){
-        updatedChat[index].like = true;
-        updatedChat[index].dislike = false;
+        updatedChat[index].like = "/src/assets/like-filled-black.svg";
+        updatedChat[index].dislike = "/src/assets/dislike-outline-black.svg";
       }else{
         {
-          updatedChat[index].like = false;
-          updatedChat[index].dislike = true;
+          updatedChat[index].like = "/src/assets/like-outline-black.svg";
+          updatedChat[index].dislike = "/src/assets/dislike-filled-black.svg";
         }
       }
 
