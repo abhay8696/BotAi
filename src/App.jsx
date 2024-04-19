@@ -21,6 +21,8 @@ function App() {
   const newChatClick = () => {
     //save current chat to pastConversations
     //setCurrentChat to empty []
+    setCurrentChat([]);
+    setPastConvo(false);
   }
   const addChatMsg = (userMsg, botReply) => {
     setCurrentChat([...currentChat, userMsg, botReply]);
@@ -33,7 +35,7 @@ function App() {
     <>
     <ThemeContext.Provider value={[theme, setTheme]}>
       <main>
-        <SideBar handleSideBar={handleSideBar} sidebarON={sidebarON} handlePastConvo={handlePastConvo}/>
+        <SideBar newChatClick={newChatClick} handleSideBar={handleSideBar} sidebarON={sidebarON} handlePastConvo={handlePastConvo}/>
         <AppBody likeDislikeReply={likeDislikeReply} pastConvo={pastConvo} clearCurrentChat={clearCurrentChat} addChatMsg={addChatMsg} currentChat={currentChat} handleSideBar={handleSideBar} sidebarON={sidebarON}/>
       </main>
     </ThemeContext.Provider>

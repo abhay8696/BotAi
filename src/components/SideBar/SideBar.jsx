@@ -12,7 +12,7 @@ import Button from '../Button/Button';
 
 const SideBar = props => {
     //props
-    const { handleSideBar, sidebarON, handlePastConvo } = props;
+    const { handleSideBar, sidebarON, handlePastConvo, newChatClick } = props;
     //context
     const [theme, setTheme] = useContext(ThemeContext)
 
@@ -20,7 +20,7 @@ const SideBar = props => {
     const sideBarForLarge = () => {
         return (
             <aside className={`SideBar SideBarTheme-${theme} SideBar-large`}>
-                <div className={`sideBarHead sideBarHeadTheme=${theme}`}>
+                <div onClick={newChatClick} className={`sideBarHead sideBarHeadTheme=${theme}`}>
                     <img src={icon1} alt="app icon" className='appLogo'/>
                     <h2>New Chat</h2>
                     <img src={penIcon} alt='pen icon' className='penIcon'/>
@@ -35,7 +35,7 @@ const SideBar = props => {
     const sideBarForSmall = () => {
         return (
             <aside className={`SideBar SideBarTheme-${theme} SideBar-small`}>
-                <div className={`sideBarHead sideBarHeadTheme=${theme}`}>
+                <div onClick={newChatClick} className={`sideBarHead sideBarHeadTheme=${theme}`}>
                     <img src={icon1} alt="app icon" className='appLogo'/>
                     <h2>New Chat</h2>
                     <img src={penIcon} alt='pen icon' className='penIcon'/>
