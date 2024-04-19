@@ -10,7 +10,7 @@ import PastConvo from '../PastConvo/PastConvo';
 
 const AppBody = props => {
     //props
-    const { handleSideBar, sidebarON, currentChat, addChatMsg, clearCurrentChat, pastConvo } = props;
+    const { handleSideBar, sidebarON, currentChat, addChatMsg, clearCurrentChat, pastConvo, likeDislikeReply } = props;
     //context
     const [theme, setTheme] = useContext(ThemeContext)
 
@@ -26,7 +26,7 @@ const AppBody = props => {
                 pastConvo ?
                 <PastConvo />
                 :
-                <ChatBody clearCurrentChat={clearCurrentChat} addChatMsg={addChatMsg} currentChat={currentChat}/>
+                <ChatBody likeDislikeReply={likeDislikeReply} clearCurrentChat={clearCurrentChat} addChatMsg={addChatMsg} currentChat={currentChat}/>
             }
         </div>
     );

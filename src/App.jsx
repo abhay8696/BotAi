@@ -6,6 +6,7 @@ import { ThemeContext } from './AllContexts';
 //components
 import SideBar from './components/SideBar/SideBar';
 import AppBody from './components/AppBody/AppBody';
+import { updateByLikeDislike } from './functions/functions';
 
 function App() {
   //states
@@ -26,13 +27,14 @@ function App() {
   }
   const clearCurrentChat = () => setCurrentChat([]);
   const handlePastConvo = () => setPastConvo(!pastConvo);
-
+  const likeDislikeReply = (chatCardId, reaction) => setCurrentChat(updateByLikeDislike(chatCardId, reaction, currentChat));
+  
   return (
     <>
     <ThemeContext.Provider value={[theme, setTheme]}>
       <main>
         <SideBar handleSideBar={handleSideBar} sidebarON={sidebarON} handlePastConvo={handlePastConvo}/>
-        <AppBody pastConvo={pastConvo} clearCurrentChat={clearCurrentChat} addChatMsg={addChatMsg} currentChat={currentChat} handleSideBar={handleSideBar} sidebarON={sidebarON}/>
+        <AppBody likeDislikeReply={likeDislikeReply} pastConvo={pastConvo} clearCurrentChat={clearCurrentChat} addChatMsg={addChatMsg} currentChat={currentChat} handleSideBar={handleSideBar} sidebarON={sidebarON}/>
       </main>
     </ThemeContext.Provider>
     </>

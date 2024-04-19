@@ -15,7 +15,7 @@ import { createTimeStamp, findQuestionFromSampleData, saveChatToLocal } from '..
 
 const ChatBody = props => {
     //props
-    const { currentChat, addChatMsg, clearCurrentChat } = props;
+    const { currentChat, addChatMsg, clearCurrentChat, likeDislikeReply } = props;
     //context
     const [theme, setTheme] = useContext(ThemeContext);
     //functions
@@ -41,6 +41,8 @@ const ChatBody = props => {
             message: responseArr?.[0]?.response || "something went wrong...",
             time: createTimeStamp(),
             id: `botAI-${new Date() / 1}`,
+            like: false,
+            dislike: false
         }
 
         addChatMsg(userCard, botCard);
@@ -50,7 +52,9 @@ const ChatBody = props => {
 
         return currentChat.map(card => {
             const { icon, name, message, time, id } = card;
-            return <ChatCard key={id} icon={icon} name={name} message={message} time={time}/>
+            let customClass
+            if(name === "bot ai") customClass = "botCard"
+            return <ChatCard id={id} likeDislikeReply={likeDislikeReply} customClass={customClass} key={id} icon={icon} name={name} message={message} time={time}/>
         })
     }
     const saveChat = () => {

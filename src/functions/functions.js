@@ -33,3 +33,29 @@ export const saveChatToLocal = currentChat => {
 
     window.localStorage.setItem("pastConversations", JSON.stringify(allConvo));
 }
+
+
+export const updateByLikeDislike = (chatCardId, reaction, currentChat) => {
+    let index;
+    for(let i = 0; i < currentChat.length; i++){
+      if(currentChat[i].id === chatCardId){
+        index = i;
+        break;
+      }
+    }
+    if(index){
+      let updatedChat = [...currentChat];
+      if(reaction === "like"){
+        updatedChat[index].like = true;
+        updatedChat[index].dislike = false;
+      }else{
+        {
+          updatedChat[index].like = false;
+          updatedChat[index].dislike = true;
+        }
+      }
+
+      return updatedChat;
+    }
+    return currentChat;
+}
