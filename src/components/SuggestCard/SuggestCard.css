@@ -11,6 +11,7 @@
     max-width: 95vw;
     border-radius: 5px;
     padding: 1rem;
+    cursor: pointer;
 }
 .SuggestCard-mainText{
     font-size: 20px;

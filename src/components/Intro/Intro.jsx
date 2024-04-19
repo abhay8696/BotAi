@@ -14,7 +14,7 @@ const cardText3 = "Hi, what is the temperature";
 const cardText4 = "Hi, how are you";
 const subText = "Get immediate AI generated response";
 
-const Intro = () => {
+const Intro = ({handleFormInput}) => {
     //context
     const [theme, setTheme] = useContext(ThemeContext)
 
@@ -25,10 +25,10 @@ const Intro = () => {
                 <img src={icon1} alt="bot ai" />
             </div>
             <div className='introCards'>
-                <SuggestCard mainText={cardText1} subText={subText}/>
-                <SuggestCard mainText={cardText2} subText={subText}/>
-                <SuggestCard mainText={cardText3} subText={subText}/>
-                <SuggestCard mainText={cardText4} subText={subText}/>
+                <SuggestCard handleFormInput={handleFormInput} mainText={cardText1} subText={subText}/>
+                <SuggestCard handleFormInput={handleFormInput} mainText={cardText2} subText={subText}/>
+                <SuggestCard handleFormInput={handleFormInput} mainText={cardText3} subText={subText}/>
+                <SuggestCard handleFormInput={handleFormInput} mainText={cardText4} subText={subText}/>
             </div>
         </div>
     );

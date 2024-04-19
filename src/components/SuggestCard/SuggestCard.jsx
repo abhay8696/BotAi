@@ -6,11 +6,11 @@ import { ThemeContext } from '../../AllContexts';
 
 const SuggestCard = props => {
     //props
-    const { mainText, subText } = props;
+    const { mainText, subText, handleFormInput } = props;
     // ..contexts
     const [theme, setTheme] = useContext(ThemeContext);
     return (
-        <div className={`SuggestCard SuggestCardTheme-${theme}`}>
+        <div className={`SuggestCard SuggestCardTheme-${theme}`} onClick={()=> handleFormInput(mainText)}>
             <span className='SuggestCard-mainText'>{mainText}</span>
             <span className='SuggestCard-subtext'>{subText}</span>
         </div>

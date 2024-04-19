@@ -80,7 +80,7 @@ const ChatBody = props => {
             </>
             :
             <>
-                <Intro />
+                <Intro handleFormInput={handleFormInput}/>
                 <Form handleFormInput={handleFormInput} />
             </>
         }
